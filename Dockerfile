@@ -5,7 +5,6 @@ RUN adduser ramona -D
 
 
 WORKDIR /app
-COPY . /app
 RUN pip install -r requirements.txt
 
 ENV APACHE_RUN_USER www-data
