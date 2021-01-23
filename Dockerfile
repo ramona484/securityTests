@@ -1,4 +1,4 @@
-FROM python:3.7-alpine
+FROM python:latest
 
 FROM debian
 RUN apt-get update && apt-get upgrade 
