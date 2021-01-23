@@ -16,6 +16,12 @@ jobs:
         with:
           dockerfile: Dockerfile
           
+      - name: Scan image
+        uses: anchore/scan-action@v2
+        with:
+          image: "localbuild/testimage:latest"
+          fail-build: true
+          severity-cutoff: critical
           
       - name: trufflehog-actions-scan
         uses: edplato/trufflehog-actions-scan@master 
