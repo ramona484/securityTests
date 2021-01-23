@@ -4,7 +4,7 @@ LABEL maintainer="ramona"
 RUN adduser ramona -D
 
 
-WORKDIR /app
+WORKDIR /project
 RUN pip install -r requirements.txt
 
 ENV APACHE_RUN_USER www-data
