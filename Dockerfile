@@ -1,13 +1,9 @@
 FROM python:latest
 
-FROM debian
-RUN apt-get update && apt-get upgrade 
 
 LABEL maintainer="ramona"
 
-ADD . /app
 
-WORKDIR app
 RUN pip install -r requirements.txt
 
 ENV APACHE_RUN_USER www-data
