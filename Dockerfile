@@ -16,4 +16,4 @@ EXPOSE 5000
 
 USER root
 
-CMD python index.py
+CMD python /index.py
