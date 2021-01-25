@@ -3,8 +3,8 @@ language: python
 
 addons:
   sonarcloud:
-    organization:
-      secure: $SONAR_ORG # the key of the org you chose at step #3
+    organization: "ramona484"
+     # the key of the org you chose at step #3
     token:
       secure: $SONAR_TOKEN # encrypted value of your token
 
