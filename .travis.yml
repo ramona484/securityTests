@@ -1,19 +1,21 @@
+sudo: required
 language: python
-python:
-  - "3.6"
-
-install:
-  - pip install -r requirements.txt
-
 services:
-    - docker
-
+  - docker
+env:
+  global:
+    - DOCKER_REPO=docker/repo
+    - EB_REGION="eu-east-1"
+    - secure: $AWS_ACCOUNT_ID
+    - secure: $AWS_ACCESS_KEY_ID
+    - secure: $AWS_SECRET_ACCESS_KEY
+before_install:
+  - pip install awscli
+  - export PATH=$PATH:$HOME/.local/bin
 script:
-  - docker build -t security-tests .
-
-after_success:
-  - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-  - docker tag security-tests $DOCKER_USER/security-tests:$TRAVIS_BUILD_NUMBER
-  - docker push $DOCKER_USER/security-tests:$TRAVIS_BUILD_NUMBER
-  - docker tag security-tests $DOCKER_USER/security-tests:latest
-  - docker push $DOCKER_USER/security-tests:latest
+  - docker build -t $DOCKER_REPO .
+deploy:
+  provider: script
+  script: bash docker_push.sh
+  on:
+    branch: master
