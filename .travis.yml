@@ -4,8 +4,8 @@ language: python
 addons:
   sonarcloud:
     organization: "ramona484"
-    token:
-      secure: "**************************" # encrypted value of your token
+    token: $SONAR_TOKEN
+
 
 services:
   - docker
