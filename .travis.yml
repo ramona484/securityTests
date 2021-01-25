@@ -1,13 +1,11 @@
 sudo: required
 language: python
 
-jobs:
-  include:
-
-  - stage: Scan
-      language: generic
-      script:
-        - "./sonarcloud.sh"
+addons:
+  sonarcloud:
+    organization: ramona484 # the key of the org you chose at step #3
+    token:
+      secure: $SONAR_TOKEN # encrypted value of your token
 
 services:
   - docker
@@ -22,6 +20,7 @@ before_install:
   - pip install awscli
   - export PATH=$PATH:$HOME/.local/bin
 script:
+  - sonar-scanner
   - docker build -t $DOCKER_REPO .
 deploy:
   provider: script

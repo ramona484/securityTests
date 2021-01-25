@@ -1,8 +1,0 @@
-addons:
-  sonarcloud:
-    organization: ramona484 # the key of the org you chose at step #3
-    token:
-      secure: $SONAR_TOKEN # encrypted value of your token
-script:
-  # other script steps might be done before running the actual analysis
-  - sonar-scanner
