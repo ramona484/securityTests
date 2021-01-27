@@ -1,2 +1,4 @@
 flask
 flask-cors <= 3.0.8
+
+AKUIS6VEP9M7KLD5UIO69
