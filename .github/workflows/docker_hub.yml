@@ -12,6 +12,9 @@ jobs:
         name: Checkout
         uses: actions/checkout@v2
         
+      - name: trufflehog-actions-scan
+        uses: edplato/trufflehog-actions-scan@master 
+        
       - uses: brpaz/hadolint-action@v1.2.1
         with:
           dockerfile: Dockerfile
@@ -23,9 +26,6 @@ jobs:
           fail-build: true
           severity-cutoff: critical
           
-      - name: trufflehog-actions-scan
-        uses: edplato/trufflehog-actions-scan@master 
-
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
