@@ -3,7 +3,7 @@ FROM python:3.6
 
 LABEL maintainer="ramona"
 
-ADD . /app
+COPY . /app
 
 WORKDIR app
 RUN pip install -r requirements.txt
