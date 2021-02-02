@@ -6,7 +6,6 @@ addons:
     organization: "ramona484"
     token: $SONAR_TOKEN
 
-
 services:
   - docker
 env:
@@ -17,7 +16,7 @@ env:
     - secure: $AWS_ACCESS_KEY_ID
     - secure: $AWS_SECRET_ACCESS_KEY
     - COMMIT=${TRAVIS_COMMIT::8}
-    -
+
 before_install:
   - pip install awscli
   - export PATH=$PATH:$HOME/.local/bin
