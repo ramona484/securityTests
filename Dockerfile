@@ -2,7 +2,7 @@ FROM python:3.6
 
 
 LABEL maintainer="ramona"
-RUN adduser ramona -D
+RUN adduser ramona
 
 COPY . /app
 

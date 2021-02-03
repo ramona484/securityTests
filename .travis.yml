@@ -6,6 +6,10 @@ addons:
     organization: "ramona484"
     token: $SONAR_TOKEN
 
+os:
+  - linux
+  - osx
+
 services:
   - docker
 env:
