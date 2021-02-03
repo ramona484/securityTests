@@ -18,6 +18,12 @@ jobs:
       - uses: brpaz/hadolint-action@v1.2.1
         with:
           dockerfile: Dockerfile
+      
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_AUTH_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
                    
 
       - name: Set up QEMU
